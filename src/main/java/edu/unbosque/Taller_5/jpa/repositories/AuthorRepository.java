@@ -2,6 +2,7 @@ package edu.unbosque.Taller_5.jpa.repositories;
 
 import edu.unbosque.Taller_5.jpa.entities.Author;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,4 +16,5 @@ public interface AuthorRepository {
 
     void deleteById(Integer id);
 
+    Optional<Author> modify(String name) throws SQLException;
 }

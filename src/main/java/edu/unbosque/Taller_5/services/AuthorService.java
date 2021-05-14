@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +66,19 @@ public class AuthorService {
 
         authorRepository = new AuthorRepositoryImpl(entityManager);
         authorRepository.deleteById(authorId);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+    }
+
+    public void modifyAuthor(String name) throws SQLException {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        authorRepository = new AuthorRepositoryImpl(entityManager);
+        authorRepository.modify(name);
 
         entityManager.close();
         entityManagerFactory.close();

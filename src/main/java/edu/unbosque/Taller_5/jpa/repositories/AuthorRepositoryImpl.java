@@ -3,12 +3,17 @@ package edu.unbosque.Taller_5.jpa.repositories;
 import edu.unbosque.Taller_5.jpa.entities.Author;
 
 import javax.persistence.EntityManager;
+import javax.resource.cci.ResultSet;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 public class AuthorRepositoryImpl implements AuthorRepository {
 
     private EntityManager entityManager;
+
 
     public AuthorRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -62,5 +67,33 @@ public class AuthorRepositoryImpl implements AuthorRepository {
             }
         }
     }
+    @Override
+    public Optional<Author> modify(String name) throws SQLException {
+        Author author = entityManager.find(Author.class, name);
+        String  nom;
+        Connection con = null;
+        ResultSet rs;
+        PreparedStatement ps;
+
+        ps=con.prepareStatement("update usuario set Nombres='"+author+"'where author_id = +id");
+        rs= (ResultSet) ps.executeQuery();
+
+
+            ps.executeUpdate();
+        if (author != null) {
+
+            try {
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return Optional.of(author);
+        }
+
+
+
+
 
 }

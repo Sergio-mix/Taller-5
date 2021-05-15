@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Taller-5</title>
@@ -25,17 +25,15 @@
                 <a href="#" class="nav__logo">Library Manager</a>
             </div>
             <div class="nav__list">
-
-                <a href="#" class="nav__link active" onclick="doOpen('index.jsp')">
+                <a href="#" class="nav__link" onclick="doOpen('index.jsp')">
                     <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Autor</span>
                 </a>
 
-                <a href="#" class="nav__link" onclick="doOpen('library.jsp')">
+                <a href="#" class="nav__link active" onclick="doOpen('library.jsp')">
                     <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Libreria</span>
                 </a>
-
 
                 <a href="#" class="nav__link" onclick="doOpen('edition.jsp')">
                     <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
@@ -55,7 +53,7 @@
             </div>
         </div>
 
-        <a href="javascript:window.close()" class="nav__link">
+        <a href="javascript:window.close()" class="nav__link" >
             <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Salir</span>
         </a>
@@ -68,25 +66,22 @@
 <script src="js/main.js"></script>
 
 <!-- ===== index ===== -->
-<button onclick="location.href='./form-author.jsp';">Create author</button>
+<button onclick="location.href='./form-library.jsp';">Create library</button>
 
-<h3>Authors</h3>
+<h3>Libraries</h3>
 
-<table id="authorsTbl">
+<table id="librariesTbl">
     <thead>
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th># Books</th>
         <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     </tbody>
 </table>
-
 <script>
-
     function printTable(elementId, servlet, columns, actions = []) {
 
         var xhr = new XMLHttpRequest();
@@ -142,10 +137,8 @@
 
     }
 
-    // Printing authors
-    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name', 'numBooks'], actions = ['create-book', 'delete-author', 'modify-author']);
-
+    // Printing libraries
+    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name']);
 </script>
-
 </body>
 </html>

@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <a href="javascript:window.close()" class="nav__link">
+        <a href="javascript:window.close()" class="nav__link" >
             <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Salir</span>
         </a>

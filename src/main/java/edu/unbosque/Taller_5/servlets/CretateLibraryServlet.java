@@ -20,7 +20,7 @@ public class CretateLibraryServlet extends HttpServlet {
         LibraryService libraryService = new LibraryService();
         libraryService.saveLibrary(name);
 
-        response.sendRedirect("./index.jsp");
+        response.sendRedirect("./library.jsp");
     }
 
 }

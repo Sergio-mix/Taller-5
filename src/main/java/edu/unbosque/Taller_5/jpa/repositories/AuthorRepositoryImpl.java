@@ -67,31 +67,33 @@ public class AuthorRepositoryImpl implements AuthorRepository {
             }
         }
     }
-
     @Override
     public Optional<Author> modify(String name) throws SQLException {
         Author author = entityManager.find(Author.class, name);
-        String nom;
+        String  nom;
         Connection con = null;
         ResultSet rs;
         PreparedStatement ps;
 
-        ps = con.prepareStatement("update usuario set Nombres='" + author + "'where author_id = +id");
-        rs = (ResultSet) ps.executeQuery();
+        ps=con.prepareStatement("update usuario set Nombres='"+author+"'where author_id = +id");
+        rs= (ResultSet) ps.executeQuery();
 
 
-        ps.executeUpdate();
+            ps.executeUpdate();
         if (author != null) {
 
             try {
 
 
-} catch (Exception e) {
-        e.printStackTrace();
-        }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return Optional.of(author);
         }
 
 
-        }
+
+
+
+}

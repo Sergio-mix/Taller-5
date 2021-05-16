@@ -37,10 +37,9 @@ public class BookService {
         List<BookPOJO> booksPOJO = new ArrayList<>();
         for (Book book : books) {
             booksPOJO.add(new BookPOJO(
-                    book.getAuthor(),
+                    book.getAuthor().getName(),
                     book.getTitle(),
-                    book.getIsbn(),
-                    book.getEdition()
+                    book.getIsbn()
             ));
         }
 

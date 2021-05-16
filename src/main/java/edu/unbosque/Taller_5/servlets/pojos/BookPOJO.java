@@ -1,27 +1,25 @@
 package edu.unbosque.Taller_5.servlets.pojos;
 
-import edu.unbosque.Taller_5.jpa.entities.Author;
-import edu.unbosque.Taller_5.jpa.entities.Edition;
 
 public class BookPOJO {
 
-    private Author author;
+    private String author;
     private String name;
     private String ISBN;
-    private Edition edition;
 
-    public BookPOJO(Author author, String name, String ISBN, Edition edition) {
+
+    public BookPOJO(String author, String name, String ISBN) {
         this.author = author;
         this.name = name;
         this.ISBN = ISBN;
-        this.edition = edition;
+
     }
 
-    public Author getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(Author author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
@@ -41,11 +39,5 @@ public class BookPOJO {
         this.ISBN = ISBN;
     }
 
-    public Edition getEdition() {
-        return edition;
-    }
 
-    public void setEdition(Edition edition) {
-        this.edition = edition;
-    }
 }

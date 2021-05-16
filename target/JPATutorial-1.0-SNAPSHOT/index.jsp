@@ -114,6 +114,14 @@
                         action.appendChild(text);
                         cell.appendChild(action);
                     }
+                    if (actions.includes('other-options-book')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        action.setAttribute('onclick', 'location.href="./book.jsp?authorId=' + d['authorId'] + '";');
+                        var text = document.createTextNode('other options book');
+                        action.appendChild(text);
+                        cell.appendChild(action);
+                    }
 
                     if (actions.includes('delete-author')) {
                         var cell = newRow.insertCell();
@@ -143,7 +151,7 @@
     }
 
     // Printing authors
-    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name', 'numBooks'], actions = ['create-book', 'delete-author', 'modify-author']);
+    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name', 'numBooks'], actions = ['create-book','other-options-book', 'delete-author', 'modify-author']);
 
 </script>
 

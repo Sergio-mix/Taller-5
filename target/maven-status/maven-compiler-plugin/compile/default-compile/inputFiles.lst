@@ -1,3 +1,4 @@
+C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\servlets\ListBooksServlet.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\servlets\CretateLibraryServlet.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\jpa\repositories\LibraryRepository.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\jpa\repositories\ModifyAuthorRepositorylmpl.java
@@ -12,6 +13,7 @@ C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\jpa\reposi
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\servlets\ListLibrariesServlet.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\jpa\entities\Author.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\servlets\DeleteAuthorServlet.java
+C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\servlets\DeleteBookServlet.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\services\AuthorService.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\servlets\ListAuthorsServlet.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\HelloApplication.java
@@ -20,7 +22,9 @@ C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\jpa\entiti
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\jpa\repositories\BookRepositoryImpl.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\jpa\entities\Book.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\jpa\repositories\AuthorRepositoryImpl.java
+C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\servlets\pojos\BookPOJO.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\jpa\entities\Edition.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\servlets\pojos\AuthorPOJO.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\servlets\pojos\LibraryPOJO.java
 C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\HelloResource.java
+C:\Users\Pc\IdeaProjects\Taller-5\src\main\java\edu\unbosque\Taller_5\servlets\ModifyBookServlet.java

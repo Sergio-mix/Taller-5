@@ -34,6 +34,7 @@ public class AuthorService {
             authorsPOJO.add(new AuthorPOJO(
                     author.getAuthorId(),
                     author.getName(),
+                    author.getCountry(),
                     author.getBooks().size()
             ));
         }
@@ -42,16 +43,13 @@ public class AuthorService {
 
     }
 
-    public Author saveAuthor(String name) {
+    public Author saveAuthor(String name,String country) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-
         authorRepository = new AuthorRepositoryImpl(entityManager);
-
-        Author author = new Author(name);
+        Author author = new Author(name,country);
         Author persistedAuthor = authorRepository.save(author).get();
-
         entityManager.close();
         entityManagerFactory.close();
 

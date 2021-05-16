@@ -22,6 +22,7 @@ public class BookService {
 
     AuthorRepository authorRepository;
     BookRepository bookRepository;
+    Book book;
 
     public List<BookPOJO> listBooks() {
 
@@ -37,9 +38,11 @@ public class BookService {
         List<BookPOJO> booksPOJO = new ArrayList<>();
         for (Book book : books) {
             booksPOJO.add(new BookPOJO(
+                    book.getBookId(),
                     book.getAuthor().getName(),
                     book.getTitle(),
-                    book.getIsbn()
+                    book.getIsbn(),
+                    book.getGenre()
             ));
         }
 
@@ -47,7 +50,7 @@ public class BookService {
 
     }
 
-    public void saveBook(String title, String isbn, Integer authorId) {
+    public void saveBook(String title, String isbn,String genre, Integer authorId) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -57,7 +60,7 @@ public class BookService {
 
         Optional<Author> author = authorRepository.findById(authorId);
         author.ifPresent(a -> {
-            a.addBook(new Book(title, isbn));
+            a.addBook(new Book(title, isbn,genre));
             authorRepository.save(a);
         });
 
@@ -65,6 +68,32 @@ public class BookService {
         entityManagerFactory.close();
 
         return;
+
+    }
+    public void deleteBook(Integer bookId) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        authorRepository = new AuthorRepositoryImpl(entityManager);
+        bookRepository = new BookRepositoryImpl(entityManager);
+
+        bookRepository.deleteById(bookId);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+    }
+    public void modifyBook(Integer id,String title,String isbn,String genre){
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        authorRepository = new AuthorRepositoryImpl(entityManager);
+        bookRepository = new BookRepositoryImpl(entityManager);
+        bookRepository.modify(id,title,isbn,genre);
+
+        entityManager.close();
+        entityManagerFactory.close();
 
     }
 

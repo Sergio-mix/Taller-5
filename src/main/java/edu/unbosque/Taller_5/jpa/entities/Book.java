@@ -1,6 +1,8 @@
 package edu.unbosque.Taller_5.jpa.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Book") // Optional
@@ -22,7 +24,8 @@ public class Book {
 
     @Column(name = "isbn_number")
     private String isbn;
-
+    @Column(name = "genre")
+    private String genre;
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
@@ -30,17 +33,20 @@ public class Book {
     @OneToOne(mappedBy = "book")
     private Edition edition;
 
-    public Book() {}
-
-    public Book(String title, String isbn) {
-        this.title = title;
-        this.isbn = isbn;
+    public Book() {
     }
 
-    public Book(Integer bookId, String title, String isbn) {
+    public Book(String title, String isbn, String genre) {
+        this.title = title;
+        this.isbn = isbn;
+        this.genre = genre;
+    }
+
+    public Book(Integer bookId, String title, String isbn, String genre) {
         this.bookId = bookId;
         this.title = title;
         this.isbn = isbn;
+        this.genre = genre;
     }
 
     public Integer getBookId() {
@@ -67,6 +73,14 @@ public class Book {
         this.isbn = isbn;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
     public Author getAuthor() {
         return author;
     }
@@ -75,11 +89,14 @@ public class Book {
         this.author = author;
     }
 
-    public Edition getEdition() { return edition; }
+    public Edition getEdition() {
+        return edition;
+    }
 
     public void addEdition(Edition edition) {
         this.edition = edition;
         edition.setBook(this);
     }
+
 
 }

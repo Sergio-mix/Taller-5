@@ -1,6 +1,7 @@
 package edu.unbosque.Taller_5.servlets;
 
 import edu.unbosque.Taller_5.services.AuthorService;
+import edu.unbosque.Taller_5.services.BookService;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,12 +16,13 @@ public class DeleteBookServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-        Integer authorId = Integer.parseInt(request.getParameter("authorId"));
+        Integer bookId = Integer.parseInt(request.getParameter("bookId"));
 
-        AuthorService authorService = new AuthorService();
-        authorService.deleteAuthor(authorId);
 
-        response.sendRedirect("./index.jsp");
+        BookService bookService = new BookService();
+        bookService.deleteBook(bookId);
+
+        response.sendRedirect("./book.jsp");
     }
 
 

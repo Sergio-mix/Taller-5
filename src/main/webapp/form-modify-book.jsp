@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JPA Tutorial</title>
+    <title>Modify book</title>
 </head>
 <body>
 
-<form action="./create-book">
-    <input type="hidden" id="authorId" name="authorId" value ="<%= request.getParameter("authorId") %>">
+<form action="./modify-book">
+    <input type="hidden" id="bookId" name="bookId" value ="<%= request.getParameter("bookId") %>">
+
     Book title: <input type="text" id="title" name="title">
     <br />
     Book ISBN: <input type="text" id="isbn" name="isbn">
@@ -15,7 +16,7 @@
     <br />
     Book Genre: <input type="text" id="genre" name="genre">
     <br />
-    <input type="submit" value="Create book!">
+    <input type="submit" value="Modify book!">
 </form>
 
 </body>

@@ -32,6 +32,7 @@ public class AuthorRepositoryImpl implements AuthorRepository {
         Author author = entityManager.createNamedQuery("Author.findByName", Author.class)
                 .setParameter("name", name)
                 .getSingleResult();
+
         return author != null ? Optional.of(author) : Optional.empty();
     }
 
@@ -69,11 +70,11 @@ public class AuthorRepositoryImpl implements AuthorRepository {
     }
 
     @Override
-    public String modify(Integer id,String name) {
+    public String modify(Integer id, String name) {
         entityManager.getTransaction().begin();
         Optional<Author> author = this.findById(id);
         if (!author.isPresent())
-        author.get().setName(name);
+            author.get().setName(name);
         entityManager.getTransaction().commit();
         return "Se ha modificado exitosamente!";
     }

@@ -73,9 +73,11 @@
 <table id="booksTbl">
     <thead>
     <tr>
+        <th>Book ID</th>
         <th>Book</th>
         <th>ISBN</th>
         <th>Author</th>
+        <th>genre</th>
         <th>Actions</th>
 
     </tr>
@@ -105,11 +107,19 @@
                         cell.appendChild(text);
                     });
 
-                    if (actions.includes('create-book')) {
+                    if (actions.includes('delete-book')) {
                         var cell = newRow.insertCell();
                         var action = document.createElement('button');
-                        action.setAttribute('onclick', 'location.href="./form-book.jsp?authorId=' + d['authorId'] + '";');
-                        var text = document.createTextNode('Create book');
+                        action.setAttribute('onclick', 'location.href="./delete-book?bookId=' + d['bookId'] + '";');
+                        var text = document.createTextNode('Delete book');
+                        action.appendChild(text);
+                        cell.appendChild(action);
+                    }
+                    if (actions.includes('modify-book')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        action.setAttribute('onclick', 'location.href="./form-modify-book.jsp?bookId=' + d['bookId'] + '";');
+                        var text = document.createTextNode('Modify book');
                         action.appendChild(text);
                         cell.appendChild(action);
                     }
@@ -128,7 +138,7 @@
 
 
     // Printing books
-    printTable(elementId = 'booksTbl', servlet = 'list-books', columns = [ 'name', 'ISBN', 'author'], actions = ['create-book','modify-book','delete-book']);
+    printTable(elementId = 'booksTbl', servlet = 'list-books', columns = ['bookId','title','isbn', 'author','genre'], actions = ['modify-book','delete-book']);
 
 </script>
 </body>

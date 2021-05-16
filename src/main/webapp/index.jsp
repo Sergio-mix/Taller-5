@@ -77,8 +77,10 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>Country</th>
         <th># Books</th>
         <th>Actions</th>
+
     </tr>
     </thead>
     <tbody>
@@ -151,7 +153,7 @@
     }
 
     // Printing authors
-    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name', 'numBooks'], actions = ['create-book','other-options-book', 'delete-author', 'modify-author']);
+    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId','name','country','numBooks'], actions = ['create-book','other-options-book', 'delete-author', 'modify-author']);
 
 </script>
 

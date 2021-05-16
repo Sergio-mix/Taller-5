@@ -1,5 +1,6 @@
 package edu.unbosque.Taller_5.jpa.repositories;
 
+import edu.unbosque.Taller_5.jpa.entities.Author;
 import edu.unbosque.Taller_5.jpa.entities.Book;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,7 @@ import java.util.Optional;
 public class BookRepositoryImpl implements BookRepository {
 
     private EntityManager entityManager;
+    private BookRepository bookRepository;
 
     public BookRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -47,6 +49,32 @@ public class BookRepositoryImpl implements BookRepository {
             e.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    @Override
+    public void deleteById(Integer bookId) {
+        entityManager.getTransaction().begin();
+        Optional<Book> book = this.findById(bookId);
+        book.ifPresent(books -> {
+            entityManager.remove(books);
+            entityManager.getTransaction().commit();
+        });
+
+    }
+
+
+    @Override
+    public void modify(Integer id, String title, String isbn, String genre) {
+        entityManager.getTransaction().begin();
+        Optional<Book> book = this.findById(id);
+        if (!book.isPresent())
+            book.get().setTitle(title);
+            book.get().setIsbn(isbn);
+            book.get().setTitle(title);
+            book.get().setGenre(genre);
+            entityManager.getTransaction().commit();
+
+
     }
 
 }

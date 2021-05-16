@@ -16,14 +16,11 @@ public class ModifyAuthorServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
+       Integer id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
 
         AuthorService authorService = new AuthorService();
-        try {
-            authorService.modifyAuthor(name);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        authorService.modifyAuthor(id,name);
 
         response.sendRedirect("./index.jsp");
     }

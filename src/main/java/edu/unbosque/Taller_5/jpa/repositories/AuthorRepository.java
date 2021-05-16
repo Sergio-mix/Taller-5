@@ -16,5 +16,5 @@ public interface AuthorRepository {
 
     void deleteById(Integer id);
 
-    Optional<Author> modify(String name) throws SQLException;
+    String modify(Integer id, String name);
 }

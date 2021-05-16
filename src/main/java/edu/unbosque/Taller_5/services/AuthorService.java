@@ -72,13 +72,13 @@ public class AuthorService {
 
     }
 
-    public void modifyAuthor(String name) throws SQLException {
+    public void modifyAuthor(Integer id,String name){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         authorRepository = new AuthorRepositoryImpl(entityManager);
-        authorRepository.modify(name);
+        authorRepository.modify(id,name);
 
         entityManager.close();
         entityManagerFactory.close();

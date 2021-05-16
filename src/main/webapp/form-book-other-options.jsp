@@ -108,7 +108,14 @@
                         action.appendChild(text);
                         cell.appendChild(action);
                     }
-
+                    if (actions.includes('create-book')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        action.setAttribute('onclick', 'location.href="./form-book.jsp?authorId=' + d['authorId'] + '";');
+                        var text = document.createTextNode('Create book');
+                        action.appendChild(text);
+                        cell.appendChild(action);
+                    }
 
                 });
 

@@ -4,11 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Taller-5</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style_index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
-    <script src="js/next.js"></script>
     <style>
         table, th, td {
             border: 1px solid black;
@@ -25,37 +22,36 @@
                 <a href="#" class="nav__logo">Library Manager</a>
             </div>
             <div class="nav__list">
-
-                <a href="#" class="nav__link active" onclick="doOpen('index.jsp')">
+                <a href="#" class="nav__link active">
                     <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Autor</span>
                 </a>
-
-                <a href="#" class="nav__link" onclick="doOpen('library.jsp')">
+                <a href="#" class="nav__link">
                     <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Libreria</span>
                 </a>
 
+                <div class="nav__link collapse">
+                    <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                    <span class="nav__name">Projects</span>
 
-                <a href="#" class="nav__link" onclick="doOpen('edition.jsp')">
+                    <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                    <ul class="collapse__menu">
+                        <a href="#" class="collapse__sublink">Data</a>
+                        <a href="#" class="collapse__sublink">Group</a>
+                        <a href="#" class="collapse__sublink">Members</a>
+                    </ul>
+                </div>
+
+                <a href="#" class="nav__link">
                     <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
-                    <span class="nav__name">Edición</span>
+                    <span class="nav__name">Librerias</span>
                 </a>
-
-                <a href="#" class="nav__link" onclick="doOpen('book.jsp')">
-                    <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
-                    <span class="nav__name">Book</span>
-                </a>
-
-                <a href="#" class="nav__link" onclick="doOpen('to_list.jsp')">
-                    <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
-                    <span class="nav__name">To list</span>
-                </a>
-
             </div>
         </div>
 
-        <a href="javascript:window.close()" class="nav__link">
+        <a href="#" class="nav__link">
             <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
             <span class="nav__name">Salir</span>
         </a>
@@ -67,8 +63,23 @@
 <!-- ===== MAIN JS ===== -->
 <script src="js/main.js"></script>
 
-<!-- ===== index ===== -->
+
+<button onclick="location.href='./form-library.jsp';">Create library</button>
 <button onclick="location.href='./form-author.jsp';">Create author</button>
+
+<!-- ===== index ===== -->
+<h3>Libraries</h3>
+
+<table id="librariesTbl">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
 
 <h3>Authors</h3>
 
@@ -141,6 +152,9 @@
         xhr.send(null);
 
     }
+
+    // Printing libraries
+    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name']);
 
     // Printing authors
     printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name', 'numBooks'], actions = ['create-book', 'delete-author', 'modify-author']);

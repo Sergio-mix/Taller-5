@@ -56,8 +56,6 @@ public class LibraryService {
         entityManager.close();
         entityManagerFactory.close();
 
-        return;
-
     }
     public void modifyLibrary(Integer id,String name){
 

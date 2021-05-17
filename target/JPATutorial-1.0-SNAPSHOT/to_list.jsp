@@ -63,22 +63,82 @@
 
 <!-- ===== MAIN JS ===== -->
 <script src="js/main.js"></script>
-<input type="text" value="">
-<button onclick="location.href='./form-library.jsp';">Look for</button>
+<button onclick="location.href='./customer.jsp';" >Create customer</button>
 
 <h3>To list</h3>
 
-<table id="librariesTbl">
+<table id="customerTbl">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Name</th>
         <th>Email</th>
-        <th>Book</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     </tbody>
 </table>
+<script>
+    function printTable(elementId, servlet, columns, actions = []) {
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var data = JSON.parse(xhr.responseText);
+
+                var tbodyRef = document.getElementById(elementId).getElementsByTagName('tbody')[0];
+
+                data.map(d => {
+
+                    var newRow = tbodyRef.insertRow();
+
+                    columns.map(c => {
+                        var cell = newRow.insertCell();
+                        var text = document.createTextNode(d[c]);
+                        cell.appendChild(text);
+                    });
+
+                    if (actions.includes('create-customer')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        action.setAttribute('onclick', 'location.href="./customer.jsp?customerId=' + d['customerId'] + '";');
+                        var text = document.createTextNode('Create customer');
+                        action.appendChild(text);
+                        cell.appendChild(action);
+                    }
+
+                    if (actions.includes('delete-customer')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        action.setAttribute('onclick', 'location.href="./delete-customer?customerId=' + d['customerId'] + '";');
+                        var text = document.createTextNode('Delete customer');
+                        action.appendChild(text);
+                        cell.appendChild(action);
+                    }
+
+                    if (actions.includes('modify-customer')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        action.setAttribute('onclick', 'location.href="./form-modify-customer.jsp?customerId=' + d['customerId'] + '";');
+                        var text = document.createTextNode('Modify customer');
+                        action.appendChild(text);
+                        cell.appendChild(action);
+                    }
+
+                });
+
+            }
+        }
+        xhr.open('GET', '${pageContext.request.contextPath}/' + servlet, true);
+        xhr.send(null);
+
+    }
+
+    // Printing libraries
+    printTable(elementId = 'customerTbl', servlet = 'list-customers', columns = ['customerId','email','first_name','last_name', 'gender', 'age'], actions=['delete-customer','modify-customer']);
+</script>
 </body>
 </html>

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "cretateLibraryServlet", value = "/create-library")
-public class CretateLibraryServlet extends HttpServlet {
+public class CreateLibraryServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 

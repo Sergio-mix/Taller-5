@@ -54,7 +54,6 @@ public class LibraryRepositoryImpl implements LibraryRepository {
             try {
 
                 entityManager.getTransaction().begin();
-
                 entityManager.remove(library);
                 entityManager.getTransaction().commit();
 

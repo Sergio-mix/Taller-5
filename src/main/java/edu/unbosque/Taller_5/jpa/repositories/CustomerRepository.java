@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface CustomerRepository {
     public List<Customer> findAll();
-    public Optional<Customer> findById(Integer id);
+    public Optional<Customer> findByEmail(String email);
     public Optional<Customer> save(Customer customer);
     void deleteByEmail(String email);
-    String modify(Integer id,String email, String firstName, String lastName, String gender, Integer age);
+    String modify(String email, String firstName, String lastName, String gender, Integer age);
 }

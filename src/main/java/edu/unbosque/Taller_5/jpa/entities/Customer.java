@@ -12,11 +12,9 @@ public class Customer {
 
     @Id
     @GeneratedValue
-    @Column(name = "customer_id")
-    private Integer customerId;
+
     @Column(name = "Customer_email")
     private String email;
-
     @Column(nullable = false)
     private String firstName;
     @Column(nullable = false)
@@ -36,22 +34,7 @@ public class Customer {
         this.gender = gender;
         this.age = age;
     }
-    public Customer(Integer customerId,String email, String firstName, String lastName, String gender, Integer age) {
-        this.customerId = customerId;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.age = age;
-    }
 
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
 
     public String getEmail() {
         return email;

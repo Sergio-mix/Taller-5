@@ -1,7 +1,7 @@
 package edu.unbosque.Taller_5.servlets.pojos;
 
 public class CustomerPOJO {
-private Integer customerId;
+
     private String email;
     private String firstName;
     private String lastName;
@@ -11,8 +11,8 @@ private Integer customerId;
     public CustomerPOJO() {
     }
 
-    public CustomerPOJO(Integer customerId,String email, String firstName, String lastName, String gender, Integer age) {
-        this.customerId = customerId;
+    public CustomerPOJO(String email, String firstName, String lastName, String gender, Integer age) {
+
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,13 +20,6 @@ private Integer customerId;
         this.age = age;
     }
 
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
 
     public String getEmail() {
         return email;

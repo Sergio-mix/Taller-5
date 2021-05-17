@@ -32,7 +32,6 @@ public class CustomerService {
         List<CustomerPOJO> customersPOJO = new ArrayList<>();
         for (Customer customer : customers) {
             customersPOJO.add(new CustomerPOJO(
-                    customer.getCustomerId(),
                     customer.getEmail(),
                     customer.getFirstName(),
                     customer.getLastName(),
@@ -70,14 +69,14 @@ public class CustomerService {
 
     }
 
-    public void modifyCustomer(Integer id,String email, String firstName, String lastName, String gender,Integer age) {
+    public void modifyCustomer(String email, String firstName, String lastName, String gender,Integer age) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         customerRepository = new CustomerRepositoryImpl(entityManager);
 
-        customerRepository.modify(id,email, firstName, lastName, gender,age);
+        customerRepository.modify(email, firstName, lastName, gender,age);
 
         entityManager.close();
         entityManagerFactory.close();

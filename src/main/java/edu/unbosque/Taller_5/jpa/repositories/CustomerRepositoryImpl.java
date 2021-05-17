@@ -17,8 +17,8 @@ import java.util.Optional;
             this.entityManager = entityManager;
         }
 
-        public Optional<Customer> findById(Integer id) {
-            Customer customer = entityManager.find(Customer.class, id);
+        public Optional<Customer> findByEmail(String email) {
+            Customer customer = entityManager.find(Customer.class, email);
             return customer != null ? Optional.of(customer) : Optional.empty();
         }
 
@@ -59,9 +59,9 @@ import java.util.Optional;
         }
 
         @Override
-        public String modify(Integer id,String email, String firstName, String lastName, String gender, Integer age) {
+        public String modify(String email, String firstName, String lastName, String gender, Integer age) {
             entityManager.getTransaction().begin();
-            Optional<Customer> customer = this.findById(id);
+            Optional<Customer> customer = this.findByEmail(email);
             if (!customer.isPresent())
                 customer.get().setFirstName(firstName);
             customer.get().setLastName(lastName);

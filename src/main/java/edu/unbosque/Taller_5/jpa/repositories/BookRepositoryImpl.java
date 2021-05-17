@@ -67,11 +67,17 @@ public class BookRepositoryImpl implements BookRepository {
     }
     @Override
     public void deleteById(Integer bookId) {
-        Book book = entityManager.find(Book.class, bookId);
-        if (book != null) {
+        Author author = entityManager.find(Author.class, bookId);
+        if (author != null) {
             try {
+
                 entityManager.getTransaction().begin();
-                entityManager.remove(bookId);
+
+                author.getBooks().forEach(book -> {
+                    entityManager.remove(book);
+                });
+
+                entityManager.remove(author);
                 entityManager.getTransaction().commit();
 
             } catch (Exception e) {

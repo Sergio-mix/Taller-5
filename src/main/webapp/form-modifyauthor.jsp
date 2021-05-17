@@ -5,9 +5,9 @@
 </head>
 <body>
 <form action="./modify-author">
-
-    Author id: <input type="text" id="id" name="id" required>
+    <input type="hidden" id="authorId" name="authorId" value ="<%= request.getParameter("authorId") %>">
     Author name: <input type="text" id="name" name="name"required>
+    Author country: <input type="text" id="country" name="country"required>
 
     <input type="submit" value="Modify author">
 </form>

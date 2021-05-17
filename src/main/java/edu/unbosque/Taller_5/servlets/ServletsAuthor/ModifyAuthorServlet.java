@@ -16,11 +16,12 @@ public class ModifyAuthorServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-       Integer id = Integer.parseInt(request.getParameter("id"));
+       Integer id = Integer.parseInt(request.getParameter("authorId"));
         String name = request.getParameter("name");
+        String country = request.getParameter("country");
 
         AuthorService authorService = new AuthorService();
-        authorService.modifyAuthor(id,name);
+        authorService.modifyAuthor(id,name,country);
 
         response.sendRedirect("./index.jsp");
     }

@@ -70,11 +70,13 @@ public class AuthorRepositoryImpl implements AuthorRepository {
     }
 
     @Override
-    public String modify(Integer id, String name) {
+    public String modify(Integer id, String name,String country) {
         entityManager.getTransaction().begin();
         Optional<Author> author = this.findById(id);
         if (!author.isPresent())
             author.get().setName(name);
+            author.get().setName(name);
+        author.get().setCountry(country);
         entityManager.getTransaction().commit();
         return "Se ha modificado exitosamente!";
     }

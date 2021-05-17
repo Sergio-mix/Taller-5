@@ -1,6 +1,5 @@
 package edu.unbosque.Taller_5.services;
 
-import edu.unbosque.Taller_5.jpa.entities.Author;
 import edu.unbosque.Taller_5.jpa.entities.Customer;
 import edu.unbosque.Taller_5.jpa.repositories.*;
 import edu.unbosque.Taller_5.servlets.pojos.CustomerPOJO;
@@ -33,27 +32,26 @@ public class CustomerService {
         for (Customer customer : customers) {
             customersPOJO.add(new CustomerPOJO(
                     customer.getEmail(),
-                    customer.getFirstName(),
-                    customer.getLastName(),
+                    customer.getFirst_name(),
+                    customer.getLast_name(),
                     customer.getGender(),
                     customer.getAge()
             ));
         }
-
         return customersPOJO;
-
     }
 
-    public void saveCustomer(String email, String firstName, String lastName, String gender, Integer age) {
+    public String saveCustomer(String email, String firstName, String lastName, String gender, Integer age) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         customerRepository = new CustomerRepositoryImpl(entityManager);
-        Customer customer = new Customer(email,firstName, lastName,  gender,  age);
-        Customer persistedCustomer = customerRepository.save(customer).get();
+        Customer customer = new Customer(email, firstName, lastName, gender, age);
+        String persistedCustomer = customerRepository.save(customer);
         entityManager.close();
         entityManagerFactory.close();
 
+        return persistedCustomer;
     }
 
     public void deleteCustomer(String email) {
@@ -69,14 +67,14 @@ public class CustomerService {
 
     }
 
-    public void modifyCustomer(String email, String firstName, String lastName, String gender,Integer age) {
+    public void modifyCustomer(String email, String firstName, String lastName, String gender, Integer age) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         customerRepository = new CustomerRepositoryImpl(entityManager);
 
-        customerRepository.modify(email, firstName, lastName, gender,age);
+        customerRepository.modify(email, firstName, lastName, gender, age);
 
         entityManager.close();
         entityManagerFactory.close();

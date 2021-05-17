@@ -1,4 +1,4 @@
-package edu.unbosque.Taller_5.servlets.ServletsLibrary;
+package edu.unbosque.Taller_5.servlets.ServletsCustomer;
 
 import com.google.gson.Gson;
 import edu.unbosque.Taller_5.services.CustomerService;
@@ -23,7 +23,7 @@ public class ListCustomersServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         CustomerService customerService = new CustomerService();
-        List<CustomerPOJO> customers =  customerService.listCustomers();
+        List<CustomerPOJO> customers = customerService.listCustomers();
 
         String customersJsonString = new Gson().toJson(customers);
 

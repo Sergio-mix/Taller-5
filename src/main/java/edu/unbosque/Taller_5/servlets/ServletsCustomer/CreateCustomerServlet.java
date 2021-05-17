@@ -1,4 +1,4 @@
-package edu.unbosque.Taller_5.servlets.ServletsLibrary;
+package edu.unbosque.Taller_5.servlets.ServletsCustomer;
 
 import edu.unbosque.Taller_5.services.CustomerService;
 
@@ -20,9 +20,8 @@ public class CreateCustomerServlet extends HttpServlet {
         String lastName = request.getParameter("last_name");
         String gender = request.getParameter("gender");
         Integer age = Integer.parseInt(request.getParameter("age"));
-
         CustomerService customerService = new CustomerService();
-        customerService.saveCustomer(email,firstName,lastName,gender,age);
+        customerService.saveCustomer(email, firstName, lastName, gender, age);
 
         response.sendRedirect("./to_list.jsp");
     }

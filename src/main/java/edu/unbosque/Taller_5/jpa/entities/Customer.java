@@ -22,8 +22,6 @@ public class Customer {
     @Column(name = "age")
     private Integer age;
 
-
-
     public Customer() {
 
     }

@@ -45,7 +45,7 @@
                     <span class="nav__name">Book</span>
                 </a>
 
-                <a href="#" class="nav__link" onclick="doOpen('to_list.jsp')">
+                <a href="#" class="nav__link" onclick="doOpen('customer.jsp')">
                     <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">To list</span>
                 </a>

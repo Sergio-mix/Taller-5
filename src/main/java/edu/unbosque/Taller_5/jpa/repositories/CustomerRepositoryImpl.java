@@ -1,6 +1,7 @@
 package edu.unbosque.Taller_5.jpa.repositories;
 
 import edu.unbosque.Taller_5.jpa.entities.Customer;
+import edu.unbosque.Taller_5.jpa.entities.Library;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -19,7 +20,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         return customer != null ? Optional.of(customer) : Optional.empty();
     }
 
-
+    @Override
     public List<Customer> findAll() {
         return entityManager.createQuery("from Customer").getResultList();
     }
@@ -36,7 +37,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         }
     }
 
-
     @Override
     public void deleteByEmail(String email) {
         Customer customer = entityManager.find(Customer.class, email);
@@ -45,7 +45,6 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                 entityManager.getTransaction().begin();
                 entityManager.remove(customer);
                 entityManager.getTransaction().commit();
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -56,13 +55,16 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     public String modify(String email, String firstName, String lastName, String gender, Integer age) {
         entityManager.getTransaction().begin();
         Optional<Customer> customer = this.findByEmail(email);
-        if (!customer.isPresent())
+        if (customer.isPresent()) {
+            customer.get().setEmail(email);
             customer.get().setFirst_name(firstName);
-        customer.get().setLast_name(lastName);
-        customer.get().setGender(gender);
-        customer.get().setAge(age);
-        entityManager.getTransaction().commit();
-        return "Se ha modificado exitosamente!";
+            customer.get().setLast_name(lastName);
+            customer.get().setGender(gender);
+            customer.get().setAge(age);
+            entityManager.getTransaction().commit();
+            return "Se ha modificado exitosamente!";
+        }
+        return "Error";
     }
 }
 

@@ -38,25 +38,25 @@ public class LibraryRepositoryImpl implements LibraryRepository {
         }
         return Optional.empty();
     }
+
     @Override
     public void modify(Integer id, String name) {
         entityManager.getTransaction().begin();
-        Optional <Library> library = this.findById(id);
+        Optional<Library> library = this.findById(id);
         if (library.isPresent())
             library.get().setName(name);
         entityManager.getTransaction().commit();
 
     }
+
     @Override
     public void deleteById(Integer id) {
         Library library = entityManager.find(Library.class, id);
         if (library != null) {
             try {
-
                 entityManager.getTransaction().begin();
                 entityManager.remove(library);
                 entityManager.getTransaction().commit();
-
             } catch (Exception e) {
                 e.printStackTrace();
             }

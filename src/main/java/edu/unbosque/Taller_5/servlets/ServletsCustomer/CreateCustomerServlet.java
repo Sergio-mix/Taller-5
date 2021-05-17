@@ -23,7 +23,7 @@ public class CreateCustomerServlet extends HttpServlet {
         CustomerService customerService = new CustomerService();
         customerService.saveCustomer(email, firstName, lastName, gender, age);
 
-        response.sendRedirect("./to_list.jsp");
+        response.sendRedirect("./customer.jsp");
     }
 
 }

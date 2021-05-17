@@ -101,29 +101,29 @@
                         cell.appendChild(text);
                     });
 
-                    if (actions.includes('create-book')) {
+                    if (actions.includes('create-library')) {
                         var cell = newRow.insertCell();
                         var action = document.createElement('button');
-                        action.setAttribute('onclick', 'location.href="./form-book.jsp?authorId=' + d['authorId'] + '";');
+                        action.setAttribute('onclick', 'location.href="./form-library.jsp?libraryId=' + d['libraryId'] + '";');
                         var text = document.createTextNode('Create book');
                         action.appendChild(text);
                         cell.appendChild(action);
                     }
 
-                    if (actions.includes('delete-author')) {
+                    if (actions.includes('delete-library')) {
                         var cell = newRow.insertCell();
                         var action = document.createElement('button');
-                        action.setAttribute('onclick', 'location.href="./delete-author?authorId=' + d['authorId'] + '";');
-                        var text = document.createTextNode('Delete author');
+                        action.setAttribute('onclick', 'location.href="./delete-library?libraryId=' + d['libraryId'] + '";');
+                        var text = document.createTextNode('Delete library');
                         action.appendChild(text);
                         cell.appendChild(action);
                     }
 
-                    if (actions.includes('modify-author')) {
+                    if (actions.includes('modify-library')) {
                         var cell = newRow.insertCell();
                         var action = document.createElement('button');
-                        action.setAttribute('onclick', 'location.href="./form-modifyauthor.jsp?authorId=' + d['authorId'] + '";');
-                        var text = document.createTextNode('Modify author');
+                        action.setAttribute('onclick', 'location.href="./form-modify-library.jsp?libraryId=' + d['libraryId'] + '";');
+                        var text = document.createTextNode('Modify library');
                         action.appendChild(text);
                         cell.appendChild(action);
                     }
@@ -138,7 +138,7 @@
     }
 
     // Printing libraries
-    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name']);
+    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name'], actions=['delete-library','modify-library']);
 </script>
 </body>
 </html>

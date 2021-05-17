@@ -10,5 +10,6 @@ public interface LibraryRepository {
     List<Library> findAll();
 
     Optional<Library> save(Library library);
-
+    public void modify(Integer id, String name);
+    public void deleteById(Integer id);
 }

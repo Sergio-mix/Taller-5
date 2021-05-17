@@ -2,6 +2,7 @@ package edu.unbosque.Taller_5.jpa.repositories;
 
 import edu.unbosque.Taller_5.jpa.entities.Author;
 import edu.unbosque.Taller_5.jpa.entities.Book;
+import edu.unbosque.Taller_5.jpa.entities.Library;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -53,12 +54,19 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public void deleteById(Integer bookId) {
-        entityManager.getTransaction().begin();
-        Optional<Book> book = this.findById(bookId);
-        book.ifPresent(books -> {
-            entityManager.remove(books);
-            entityManager.getTransaction().commit();
-        });
+        Book book = entityManager.find(Book.class, bookId);
+        if (book != null) {
+            try {
+
+                entityManager.getTransaction().begin();
+
+                entityManager.remove(book);
+                entityManager.getTransaction().commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 

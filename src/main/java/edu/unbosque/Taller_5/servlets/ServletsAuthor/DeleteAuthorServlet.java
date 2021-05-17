@@ -1,6 +1,6 @@
-package edu.unbosque.Taller_5.servlets;
+package edu.unbosque.Taller_5.servlets.ServletsAuthor;
 
-import edu.unbosque.Taller_5.services.BookService;
+import edu.unbosque.Taller_5.services.AuthorService;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,23 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "createBookServlet", value = "/create-book")
-public class CreateBookServlet extends HttpServlet {
+@WebServlet(name = "deleteAuthorServlet", value = "/delete-author")
+public class DeleteAuthorServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
 
-        String title = request.getParameter("title");
-        String isbn = request.getParameter("isbn");
-        String genre = request.getParameter("genre");
         Integer authorId = Integer.parseInt(request.getParameter("authorId"));
 
-        BookService bookService = new BookService();
-        bookService.saveBook(title, isbn,genre, authorId);
+        AuthorService authorService = new AuthorService();
+        authorService.deleteAuthor(authorId);
 
         response.sendRedirect("./index.jsp");
-
     }
 
 }

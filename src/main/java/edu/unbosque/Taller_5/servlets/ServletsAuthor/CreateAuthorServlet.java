@@ -1,6 +1,6 @@
-package edu.unbosque.Taller_5.servlets;
+package edu.unbosque.Taller_5.servlets.ServletsAuthor;
 
-import edu.unbosque.Taller_5.services.LibraryService;
+import edu.unbosque.Taller_5.services.AuthorService;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,17 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "cretateLibraryServlet", value = "/create-library")
-public class CretateLibraryServlet extends HttpServlet {
+@WebServlet(name = "cretateAuthorServlet", value = "/create-author")
+public class CreateAuthorServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
 
         String name = request.getParameter("name");
+        String country = request.getParameter("country");
 
-        LibraryService libraryService = new LibraryService();
-        libraryService.saveLibrary(name);
+        AuthorService authorService = new AuthorService();
+        authorService.saveAuthor(name,country);
 
         response.sendRedirect("./index.jsp");
     }

@@ -8,13 +8,15 @@ public class BookPOJO {
     private String isbn;
     private String genre;
 
+    public BookPOJO() {
+    }
 
-    public BookPOJO(Integer bookId,String author, String title, String isbn,String genre) {
-        this.bookId= bookId;
+    public BookPOJO(Integer bookId, String author, String title, String isbn, String genre) {
+        this.bookId = bookId;
         this.author = author;
         this.title = title;
         this.isbn = isbn;
-        this.genre=genre;
+        this.genre = genre;
 
     }
 

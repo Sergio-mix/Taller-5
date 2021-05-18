@@ -23,6 +23,8 @@ public class Edition {
 
     @Column(name = "release_year")
     private Date releaseYear;
+    @Column(name = "bookId")
+    private Integer bookId;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id")
@@ -35,15 +37,17 @@ public class Edition {
 
     public Edition() {}
 
-    public Edition(String description, Date releaseYear) {
+    public Edition(String description, Date releaseYear,Integer bookId) {
         this.description = description;
         this.releaseYear = releaseYear;
+        this.bookId = bookId;
     }
 
-    public Edition(Integer editionId, String description, Date releaseYear) {
+    public Edition(Integer editionId, String description, Date releaseYear,Integer bookId) {
         this.editionId = editionId;
         this.description = description;
         this.releaseYear = releaseYear;
+        this.bookId = bookId;
     }
 
     public Integer getEditionId() {
@@ -76,6 +80,14 @@ public class Edition {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public Integer getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(Integer bookId) {
+        this.bookId = bookId;
     }
 
     public Set<Library> getLibraries() {

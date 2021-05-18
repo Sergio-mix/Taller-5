@@ -65,9 +65,9 @@
 <!-- ===== MAIN JS ===== -->
 <script src="js/main.js"></script>
 <!-- ===== menu ===== -->
+<h1 id="title-module">Client <span style="color: #d90c43;"> list</span></h1>
 <div id="from-module">
     <div>
-        <h3 id="title-module">Client list</h3>
         <table id="customerTbl">
             <thead>
             <tr id="header">

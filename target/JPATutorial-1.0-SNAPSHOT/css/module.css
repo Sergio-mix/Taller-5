@@ -17,7 +17,8 @@
 }
 
 #title-module {
-    font-size: 200%;
+    text-align: center;
+    font-size: 3em;
 }
 
 #from-module {
@@ -31,14 +32,14 @@
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-button{
+button {
     background: #FFF;
     color: #f32847;
     border: #000;
     width: 100%;
 }
 
-button:hover{
+button:hover {
     background: #f32847;
     color: #FFF;
 }
@@ -73,8 +74,7 @@ td {
 h1 {
     font-weight: 600;
     text-align: center;
-    background-color: #d90c43;
-    color: #fff;
+    color: #000000;
     padding: 10px 0px;
 }
 

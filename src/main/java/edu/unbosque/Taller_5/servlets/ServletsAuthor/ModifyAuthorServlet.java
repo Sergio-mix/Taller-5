@@ -9,9 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Modify Author Servlet
+ */
 @WebServlet(name = "modifyAuthorServlet", value = "/modify-author")
 public class ModifyAuthorServlet extends HttpServlet {
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");

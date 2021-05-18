@@ -1,5 +1,8 @@
 package edu.unbosque.Taller_5.servlets.pojos;
 
+/**
+ * Class CustomerPojo
+ */
 public class CustomerPOJO {
 
     private String email;
@@ -11,6 +14,14 @@ public class CustomerPOJO {
     public CustomerPOJO() {
     }
 
+    /**
+     * Constructor
+     * @param email
+     * @param firstName
+     * @param lastName
+     * @param gender
+     * @param age
+     */
     public CustomerPOJO(String email, String firstName, String lastName, String gender, Integer age) {
 
         this.email = email;

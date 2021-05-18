@@ -8,24 +8,45 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Edition Repository Implementation
+ */
 public class EditionRepositoryImpl implements EditionRepository {
 
     private EntityManager entityManager;
 
+    /**
+     *
+     * @param entityManager
+     */
     public EditionRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<Edition> findAll() {
         return entityManager.createQuery("from Edition").getResultList();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Optional<Edition> findById(Integer id) {
         Edition edition = entityManager.find(Edition.class, id);
         return edition != null ? Optional.of(edition) : Optional.empty();
     }
 
+    /**
+     *
+     * @param edition
+     * @return
+     */
     @Override
         public String save(Edition edition) {
         try {
@@ -39,6 +60,12 @@ public class EditionRepositoryImpl implements EditionRepository {
         return "Error";
     }
 
+    /**
+     *
+     * @param id
+     * @param description
+     * @param release
+     */
     @Override
     public void modify(Integer id, String description, Date release) {
         entityManager.getTransaction().begin();
@@ -50,6 +77,10 @@ public class EditionRepositoryImpl implements EditionRepository {
 
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void deleteById(Integer id) {
         Edition edition = entityManager.find(Edition.class, id);

@@ -8,8 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Delete Edition Servlet
+ */
 @WebServlet(name = "deleteEditionServlet", value = "/delete-edition")
 public class DeleteEditionServlet extends HttpServlet {
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");

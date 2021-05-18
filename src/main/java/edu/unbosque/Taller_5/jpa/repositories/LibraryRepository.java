@@ -5,6 +5,9 @@ import edu.unbosque.Taller_5.jpa.entities.Library;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *  Library Repository
+ */
 public interface LibraryRepository {
 
     List<Library> findAll();

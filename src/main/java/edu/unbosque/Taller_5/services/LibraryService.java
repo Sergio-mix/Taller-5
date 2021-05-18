@@ -15,11 +15,18 @@ import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Library Service class
+ */
 @Stateless
 public class LibraryService {
 
     LibraryRepository libraryRepository;
 
+    /**
+     *
+     * @return
+     */
     public List<LibraryPOJO> listLibraries() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -43,6 +50,10 @@ public class LibraryService {
 
     }
 
+    /**
+     *
+     * @param name
+     */
     public void saveLibrary(String name) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -57,6 +68,12 @@ public class LibraryService {
         entityManagerFactory.close();
 
     }
+
+    /**
+     *
+     * @param id
+     * @param name
+     */
     public void modifyLibrary(Integer id,String name){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -69,6 +86,11 @@ public class LibraryService {
         entityManagerFactory.close();
 
     }
+
+    /**
+     *
+     * @param id
+     */
     public void deleteLibrary(Integer id) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");

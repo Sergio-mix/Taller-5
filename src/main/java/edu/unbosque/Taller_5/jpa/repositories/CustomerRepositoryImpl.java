@@ -7,24 +7,45 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *  Customer Repository Implementation
+ */
 public class CustomerRepositoryImpl implements CustomerRepository {
 
     private EntityManager entityManager;
 
+    /**
+     *
+     * @param entityManager
+     */
     public CustomerRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
+    /**
+     *
+     * @param email
+     * @return
+     */
     public Optional<Customer> findByEmail(String email) {
         Customer customer = entityManager.find(Customer.class, email);
         return customer != null ? Optional.of(customer) : Optional.empty();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<Customer> findAll() {
         return entityManager.createQuery("from Customer").getResultList();
     }
 
+    /**
+     *
+     * @param customer
+     * @return
+     */
     @Override
     public String save(Customer customer) {
         try {
@@ -37,6 +58,10 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         }
     }
 
+    /**
+     *
+     * @param email
+     */
     @Override
     public void deleteByEmail(String email) {
         Customer customer = entityManager.find(Customer.class, email);
@@ -51,6 +76,15 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         }
     }
 
+    /**
+     *
+     * @param email
+     * @param firstName
+     * @param lastName
+     * @param gender
+     * @param age
+     * @return
+     */
     @Override
     public String modify(String email, String firstName, String lastName, String gender, Integer age) {
         entityManager.getTransaction().begin();

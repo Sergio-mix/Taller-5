@@ -11,11 +11,18 @@ import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Customer Service
+ */
 @Stateless
 public class CustomerService {
 
     CustomerRepository customerRepository;
 
+    /**
+     *
+     * @return
+     */
     public List<CustomerPOJO> listCustomers() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -41,6 +48,15 @@ public class CustomerService {
         return customersPOJO;
     }
 
+    /**
+     *
+     * @param email
+     * @param firstName
+     * @param lastName
+     * @param gender
+     * @param age
+     * @return
+     */
     public String saveCustomer(String email, String firstName, String lastName, String gender, Integer age) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -54,6 +70,10 @@ public class CustomerService {
         return persistedCustomer;
     }
 
+    /**
+     *
+     * @param email
+     */
     public void deleteCustomer(String email) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -67,6 +87,14 @@ public class CustomerService {
 
     }
 
+    /**
+     *
+     * @param email
+     * @param firstName
+     * @param lastName
+     * @param gender
+     * @param age
+     */
     public void modifyCustomer(String email, String firstName, String lastName, String gender, Integer age) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");

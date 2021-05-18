@@ -8,24 +8,45 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Library Repository Implementation
+ */
 public class LibraryRepositoryImpl implements LibraryRepository {
 
     private EntityManager entityManager;
 
+    /**
+     *
+     * @param entityManager
+     */
     public LibraryRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<Library> findAll() {
         return entityManager.createQuery("from Library").getResultList();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Optional<Library> findById(Integer id) {
         Library library = entityManager.find(Library.class, id);
         return library != null ? Optional.of(library) : Optional.empty();
     }
 
+    /**
+     *
+     * @param library
+     * @return
+     */
     @Override
     public Optional<Library> save(Library library) {
         try {
@@ -39,6 +60,11 @@ public class LibraryRepositoryImpl implements LibraryRepository {
         return Optional.empty();
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     */
     @Override
     public void modify(Integer id, String name) {
         entityManager.getTransaction().begin();
@@ -49,6 +75,10 @@ public class LibraryRepositoryImpl implements LibraryRepository {
 
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void deleteById(Integer id) {
         Library library = entityManager.find(Library.class, id);

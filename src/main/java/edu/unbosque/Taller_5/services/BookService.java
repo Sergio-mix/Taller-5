@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Book Service Class
+ */
 @Stateless
 public class BookService {
 
@@ -24,6 +27,10 @@ public class BookService {
     BookRepository bookRepository;
     Book book;
 
+    /**
+     *
+     * @return
+     */
     public List<BookPOJO> listBooks() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -50,6 +57,13 @@ public class BookService {
 
     }
 
+    /**
+     *
+     * @param title
+     * @param isbn
+     * @param genre
+     * @param authorId
+     */
     public void saveBook(String title, String isbn,String genre, Integer authorId) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -70,6 +84,11 @@ public class BookService {
         return;
 
     }
+
+    /**
+     *
+     * @param bookId
+     */
     public void deleteBook(Integer bookId) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -83,6 +102,14 @@ public class BookService {
         entityManagerFactory.close();
 
     }
+
+    /**
+     *
+     * @param id
+     * @param title
+     * @param isbn
+     * @param genre
+     */
     public void modifyBook(Integer id,String title,String isbn,String genre){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");

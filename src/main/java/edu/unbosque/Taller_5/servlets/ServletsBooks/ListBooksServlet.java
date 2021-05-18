@@ -13,8 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+
+/**
+ * List Books Servlet
+ */
 @WebServlet(name = "listBooksServlet", value = "/list-books")
 public class ListBooksServlet extends HttpServlet {
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("application/json");

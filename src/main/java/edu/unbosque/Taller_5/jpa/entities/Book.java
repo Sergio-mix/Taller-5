@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Book Class
+ */
 @Entity
 @Table(name = "Book") // Optional
 @NamedQueries({
@@ -36,12 +39,25 @@ public class Book {
     public Book() {
     }
 
+    /**
+     *
+     * @param title
+     * @param isbn
+     * @param genre
+     */
     public Book(String title, String isbn, String genre) {
         this.title = title;
         this.isbn = isbn;
         this.genre = genre;
     }
 
+    /**
+     * Constructor
+     * @param bookId
+     * @param title
+     * @param isbn
+     * @param genre
+     */
     public Book(Integer bookId, String title, String isbn, String genre) {
         this.bookId = bookId;
         this.title = title;

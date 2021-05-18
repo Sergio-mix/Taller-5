@@ -11,9 +11,16 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Create Edition Servlet
+ */
 @WebServlet(name = "createEditionServlet", value = "/create-edition")
 public class CreateEditionServlet extends HttpServlet {
-
+    /**
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");

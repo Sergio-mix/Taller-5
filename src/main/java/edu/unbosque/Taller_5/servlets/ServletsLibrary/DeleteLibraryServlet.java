@@ -8,9 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Delete Library Servlet
+ */
 @WebServlet(name = "deleteLibraryServlet", value = "/delete-library")
 public class DeleteLibraryServlet extends HttpServlet {
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");

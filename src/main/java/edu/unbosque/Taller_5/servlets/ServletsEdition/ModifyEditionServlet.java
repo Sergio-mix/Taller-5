@@ -12,8 +12,17 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Modify Edition Servlet
+ */
 @WebServlet(name = "modifyEditionServlet", value = "/modify-edition")
 public class ModifyEditionServlet extends HttpServlet {
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");

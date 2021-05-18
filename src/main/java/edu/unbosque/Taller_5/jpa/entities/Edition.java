@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Class Edition
+ */
 @Entity
 @Table(name = "Edition") // Optional
 @NamedQueries({
@@ -37,12 +40,25 @@ public class Edition {
 
     public Edition() {}
 
+    /**
+     *
+     * @param description
+     * @param releaseYear
+     * @param bookId
+     */
     public Edition(String description, Date releaseYear,Integer bookId) {
         this.description = description;
         this.releaseYear = releaseYear;
         this.bookId = bookId;
     }
 
+    /**
+     * Constructor
+     * @param editionId
+     * @param description
+     * @param releaseYear
+     * @param bookId
+     */
     public Edition(Integer editionId, String description, Date releaseYear,Integer bookId) {
         this.editionId = editionId;
         this.description = description;

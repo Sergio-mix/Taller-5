@@ -10,20 +10,35 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Clase AuthorRepository Implementation
+ */
 public class AuthorRepositoryImpl implements AuthorRepository {
 
     private EntityManager entityManager;
 
-
+    /**
+     *
+     * @param entityManager
+     */
     public AuthorRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Optional<Author> findById(Integer id) {
         Author author = entityManager.find(Author.class, id);
         return author != null ? Optional.of(author) : Optional.empty();
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Author> findAll() {
         return entityManager.createQuery("from Author").getResultList();
     }
@@ -36,6 +51,11 @@ public class AuthorRepositoryImpl implements AuthorRepository {
         return author != null ? Optional.of(author) : Optional.empty();
     }
 
+    /**
+     *
+     * @param author
+     * @return
+     */
     public Optional<Author> save(Author author) {
         try {
             entityManager.getTransaction().begin();
@@ -48,6 +68,10 @@ public class AuthorRepositoryImpl implements AuthorRepository {
         return Optional.empty();
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void deleteById(Integer id) {
         Author author = entityManager.find(Author.class, id);
@@ -69,6 +93,13 @@ public class AuthorRepositoryImpl implements AuthorRepository {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param country
+     * @return
+     */
     @Override
     public String modify(Integer id, String name,String country) {
         entityManager.getTransaction().begin();

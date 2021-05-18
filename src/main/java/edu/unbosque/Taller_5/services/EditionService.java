@@ -14,10 +14,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Edition Service Class
+ */
 @Stateless
 public class EditionService {
     EditionRepository editionRepository;
 
+    /**
+     *
+     * @return
+     */
     public List<EditionPOJO> listEditions() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -43,6 +50,13 @@ public class EditionService {
 
     }
 
+    /**
+     *
+     * @param description
+     * @param release
+     * @param bookId
+     * @return
+     */
     public String saveEdition(String description, Date release,Integer bookId) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -57,6 +71,10 @@ public class EditionService {
 
     }
 
+    /**
+     *
+     * @param editionId
+     */
     public void deleteEdition(Integer editionId) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -70,6 +88,12 @@ public class EditionService {
 
     }
 
+    /**
+     *
+     * @param id
+     * @param description
+     * @param release
+     */
     public void modifyEdition(Integer id,String description, Date release) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");

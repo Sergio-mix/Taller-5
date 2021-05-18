@@ -12,9 +12,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+/**
+ * List Library servlet
+ */
 @WebServlet(name = "listLibrariesServlet", value = "/list-libraries")
 public class ListLibrariesServlet extends HttpServlet {
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("application/json");

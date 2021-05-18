@@ -5,6 +5,9 @@ import edu.unbosque.Taller_5.jpa.entities.Customer;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ *  Customer Repository
+ */
 public interface CustomerRepository {
     List<Customer> findAll();
 

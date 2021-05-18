@@ -9,9 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Modify Book Servlet
+ */
 @WebServlet(name = "modifyBookServlet", value = "/modify-book")
 public class ModifyBookServlet extends HttpServlet {
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");

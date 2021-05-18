@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Class Library
+ */
 @Entity
 @Table(name = "Library") // Optional
 public class Library {
@@ -28,6 +31,11 @@ public class Library {
 
     public Library() { }
 
+    /**
+     * Constructor
+     * @param libraryId
+     * @param name
+     */
     public Library(Integer libraryId, String name) {
         this.libraryId = libraryId;
         this.name = name;

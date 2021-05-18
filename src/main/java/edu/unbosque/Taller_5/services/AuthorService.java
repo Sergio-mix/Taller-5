@@ -13,11 +13,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Author Service
+ */
 @Stateless
 public class AuthorService {
 
     AuthorRepository authorRepository;
 
+    /**
+     *
+     * @return
+     */
     public List<AuthorPOJO> listAuthors() {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -43,6 +50,12 @@ public class AuthorService {
 
     }
 
+    /**
+     *
+     * @param name
+     * @param country
+     * @return
+     */
     public Author saveAuthor(String name,String country) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -57,6 +70,10 @@ public class AuthorService {
 
     }
 
+    /**
+     *
+     * @param authorId
+     */
     public void deleteAuthor(Integer authorId) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
@@ -70,6 +87,12 @@ public class AuthorService {
 
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param country
+     */
     public void modifyAuthor(Integer id,String name,String country){
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");

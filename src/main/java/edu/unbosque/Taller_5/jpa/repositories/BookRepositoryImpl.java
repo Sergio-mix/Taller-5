@@ -5,6 +5,7 @@ import edu.unbosque.Taller_5.jpa.entities.Book;
 import edu.unbosque.Taller_5.jpa.entities.Library;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.List;
 import java.util.Optional;
 
@@ -110,37 +111,45 @@ public class BookRepositoryImpl implements BookRepository {
      */
     @Override
     public void deleteById(Integer bookId) {
-        //PRUEBA 1
-        Book book = entityManager.find(Book.class, bookId);
-        if (book != null) {
-            try {
-                entityManager.getTransaction().begin();
+//        Book book = entityManager.find(Book.class, bookId);
+//        if (book != null) {
+//            try {
+//                entityManager.getTransaction().begin();
+//                entityManager.remove(book);
+//                entityManager.getTransaction().commit();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+            entityManager.getTransaction().begin();
+            Optional<Book> books = this.findById(bookId);
+
+            books.ifPresent(book -> {
+
                 entityManager.remove(book);
+
                 entityManager.getTransaction().commit();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        //PRUEBA 2
+
+            });
+
 //        entityManager.getTransaction().begin();
 //        Optional<Book> book1 = this.findById(bookId);
 //        Author author = entityManager.find(Author.class, book1.get().getAuthor().getAuthorId());
 //        if (author != null) {
 //            try {
 //                author.getBooks().forEach(book -> {
-//                    if(book.getBookId().equals(bookId)){
-//                        entityManager.remove(book);
-//                    }
-//
+//                    entityManager.remove(book);
 //                });
+//                System.out.println(book1.get()+"AQUIIIIIIIIIII");
+//                entityManager.remove(book1.get());
 //                entityManager.getTransaction().commit();
 //
 //            } catch (Exception e) {
 //                e.printStackTrace();
 //            }
 //        }
+        }
 
     }
 
 
-}

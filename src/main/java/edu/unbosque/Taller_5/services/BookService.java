@@ -95,10 +95,12 @@ public class BookService {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         authorRepository = new AuthorRepositoryImpl(entityManager);
         bookRepository = new BookRepositoryImpl(entityManager);
+        Optional<Book> book = bookRepository.findById(bookId);
 
+        authorRepository.findById(book.get().getAuthor().getAuthorId()).get().deleteBook(bookRepository.findById(bookId).get());
         bookRepository.deleteById(bookId);
-
         entityManager.close();
+
         entityManagerFactory.close();
 
     }

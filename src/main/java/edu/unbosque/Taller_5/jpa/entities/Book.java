@@ -12,8 +12,11 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = "Book.findByTitle",
                 query = "SELECT b FROM Book b WHERE b.title = :title"),
+        @NamedQuery(name = "Book.remove",
+                query = "DELETE FROM Book b WHERE b.id = :id"),
         @NamedQuery(name = "Book.findAll",
                 query = "SELECT b FROM Book b")
+
 })
 public class Book {
 

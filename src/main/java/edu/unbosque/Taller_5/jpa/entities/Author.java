@@ -108,6 +108,7 @@ public class Author {
      *
      * @return
      */
+
     public List<Book> getBooks() {
         return books;
     }
@@ -116,9 +117,19 @@ public class Author {
      *
      * @param book
      */
+
     public void addBook(Book book) {
         books.add(book);
         book.setAuthor(this);
     }
+
+    /**
+     *
+     * @param bookID
+     */
+    public void deleteBook(Book bookID) {
+        books.remove(bookID);
+    }
+
 
 }

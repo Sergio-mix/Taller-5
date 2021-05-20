@@ -62,7 +62,7 @@
 <script src="js/main.js"></script>
 
 <!-- ===== index ===== -->
-<h1 id="title-module">List <span style="color: #d90c43;"> Book</span></h1>
+<h1 id="title-module">Book<span style="color: #d90c43;"> List</span></h1>
 <div id="from-module">
     <table id="booksTbl">
         <thead>

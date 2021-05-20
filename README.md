@@ -8,11 +8,11 @@ _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios
 - Miguel Angel Sierra Morales - [LINK](https://github.com/MICKISS)
 - Sergio Alejandro Hernandez Zambrano - [LINK](https://github.com/Sergio-mix)
 
-### Pre-requisitos 📋
+### Video 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+_Link: _
 
-## Funcionalidad del programa ✒️
+### Funcionalidad del programa ✒️
 
 _Pasos:_
 - Paso 1:

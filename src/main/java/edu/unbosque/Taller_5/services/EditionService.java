@@ -1,9 +1,11 @@
 package edu.unbosque.Taller_5.services;
 
 
+import edu.unbosque.Taller_5.jpa.entities.Author;
+import edu.unbosque.Taller_5.jpa.entities.Book;
 import edu.unbosque.Taller_5.jpa.entities.Edition;
-import edu.unbosque.Taller_5.jpa.repositories.EditionRepository;
-import edu.unbosque.Taller_5.jpa.repositories.EditionRepositoryImpl;
+import edu.unbosque.Taller_5.jpa.entities.Library;
+import edu.unbosque.Taller_5.jpa.repositories.*;
 import edu.unbosque.Taller_5.servlets.pojos.EditionPOJO;
 
 import javax.ejb.Stateless;
@@ -13,6 +15,7 @@ import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Edition Service Class
@@ -20,6 +23,7 @@ import java.util.List;
 @Stateless
 public class EditionService {
     EditionRepository editionRepository;
+    LibraryRepository libraryRepository;
 
     /**
      *
@@ -106,6 +110,7 @@ public class EditionService {
         entityManagerFactory.close();
 
     }
+
 
 
 }

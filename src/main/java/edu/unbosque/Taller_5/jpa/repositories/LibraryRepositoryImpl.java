@@ -75,6 +75,25 @@ public class LibraryRepositoryImpl implements LibraryRepository {
 
     }
 
+    @Override
+    public void associateEdition(Integer idEdition, Integer id) {
+        entityManager.getTransaction().begin();
+        Optional<Library> library = this.findById(id);
+        if (library.isPresent())
+            library.get().setEditionId(idEdition);
+        entityManager.getTransaction().commit();
+    }
+
+    @Override
+    public void disassociateEdition(Integer id) {
+        entityManager.getTransaction().begin();
+        Optional<Library> library = this.findById(id);
+        if (library.isPresent())
+            library.get().setEditionId(null);
+        entityManager.getTransaction().commit();
+    }
+
+
     /**
      *
      * @param id

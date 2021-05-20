@@ -1,5 +1,7 @@
 package edu.unbosque.Taller_5.services;
 
+import edu.unbosque.Taller_5.jpa.entities.Author;
+import edu.unbosque.Taller_5.jpa.entities.Book;
 import edu.unbosque.Taller_5.jpa.entities.Library;
 import edu.unbosque.Taller_5.jpa.repositories.AuthorRepositoryImpl;
 import edu.unbosque.Taller_5.jpa.repositories.BookRepositoryImpl;
@@ -14,6 +16,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Library Service class
@@ -42,7 +45,8 @@ public class LibraryService {
         for (Library library : libraries) {
             librariesPOJO.add(new LibraryPOJO(
                     library.getLibraryId(),
-                    library.getName()
+                    library.getName(),
+                    library.getEditionId()
             ));
         }
 
@@ -103,5 +107,30 @@ public class LibraryService {
         entityManagerFactory.close();
 
     }
+    public void associate_edit(Integer idEdition, Integer id){
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        libraryRepository = new LibraryRepositoryImpl(entityManager);
+        libraryRepository.associateEdition(idEdition, id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+    }
+    public void disassociate_edition(Integer id){
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        libraryRepository = new LibraryRepositoryImpl(entityManager);
+        libraryRepository.disassociateEdition(id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+    }
+
 
 }

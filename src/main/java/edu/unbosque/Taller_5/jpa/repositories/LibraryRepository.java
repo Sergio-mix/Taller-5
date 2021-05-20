@@ -15,4 +15,7 @@ public interface LibraryRepository {
     Optional<Library> save(Library library);
     public void modify(Integer id, String name);
     public void deleteById(Integer id);
+    void associateEdition(Integer Editionid ,Integer id);
+
+    void disassociateEdition(Integer id);
 }

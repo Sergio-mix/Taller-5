@@ -131,7 +131,7 @@
                         var cell = newRow.insertCell();
                         var action = document.createElement('button');
                         action.setAttribute('onclick', 'location.href="./form-library-edition.jsp?libraryId=' + d['libraryId'] + '";');
-                        var text = document.createTextNode('associate education');
+                        var text = document.createTextNode('associate Edition');
                         action.appendChild(text);
                         cell.appendChild(action);
                     }
@@ -140,7 +140,7 @@
                         var cell = newRow.insertCell();
                         var action = document.createElement('button');
                         action.setAttribute('onclick', 'location.href="./disassociate-determination?libraryId=' + d['libraryId'] + '";');
-                        var text = document.createTextNode('disassociate determination');
+                        var text = document.createTextNode('disassociate Edition');
                         action.appendChild(text);
                         cell.appendChild(action);
                     }

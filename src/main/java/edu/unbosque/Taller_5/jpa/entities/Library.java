@@ -19,6 +19,9 @@ public class Library {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "EditionId")
+    private Integer editionId;
+
     // FetchType.EAGER: When we retrieve a Library, we'll also automatically retrieve all of its corresponding Editions
     // CascadeType.PERSIST: When we save a superhero, its movies will also be saved
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
@@ -65,4 +68,15 @@ public class Library {
         return editions;
     }
 
+    public Integer getEditionId() {
+        return editionId;
+    }
+
+    public void setEditionId(Integer editionId) {
+        this.editionId = editionId;
+    }
+
+    public void setEditions(Set<Edition> editions) {
+        this.editions = editions;
+    }
 }

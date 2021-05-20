@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style_index.css">
+    <link rel="stylesheet" href="css/module.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
     <script src="js/next.js"></script>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
 </head>
 <body>
 
@@ -68,24 +64,25 @@
 <script src="js/main.js"></script>
 
 <!-- ===== index ===== -->
-<button onclick="location.href='./form-author.jsp';">Create author</button>
+<h1 id="title-module">Authors <span style="color: #d90c43;"> list</span></h1>
+<div id="from-module">
+    <table id="authorsTbl">
+        <thead>
+        <tr id="header">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th># Books</th>
+            <th>Actions</th>
 
-<h3>Authors</h3>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 
-<table id="authorsTbl">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Country</th>
-        <th># Books</th>
-        <th>Actions</th>
-
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+    <button onclick="location.href='./form-author.jsp';" id="button-regis">Create author</button>
+</div>
 
 <script>
 
@@ -153,7 +150,7 @@
     }
 
     // Printing authors
-    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId','name','country','numBooks'], actions = ['create-book','other-options-book', 'delete-author', 'modify-author']);
+    printTable(elementId = 'authorsTbl', servlet = 'list-authors', columns = ['authorId', 'name', 'country', 'numBooks'], actions = ['create-book', 'other-options-book', 'delete-author', 'modify-author']);
 
 </script>
 

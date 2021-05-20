@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style_index.css">
+    <link rel="stylesheet" href="css/module.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
     <script src="js/next.js"></script>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
 </head>
 <body>
 <div class="l-navbar" id="navbar">
@@ -65,22 +61,22 @@
 <script src="js/main.js"></script>
 
 <!-- ===== index ===== -->
-<button onclick="location.href='./form-library.jsp';">Create library</button>
-
-<h3>Libraries</h3>
-
-<table id="librariesTbl">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Editions</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+<h1 id="title-module">Libraries <span style="color: #d90c43;"> list</span></h1>
+<div id="from-module">
+    <table id="librariesTbl">
+        <thead>
+        <tr id="customerTbl">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Editions</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button onclick="location.href='./form-library.jsp';"  id="button-regis">Create library</button>
+</div>
 <script>
     function printTable(elementId, servlet, columns, actions = []) {
 
@@ -156,7 +152,7 @@
     }
 
     // Printing libraries
-    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name','EditionId'], actions=['delete-library','modify-library','associate-education','disassociate-determination']);
+    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name', 'EditionId'], actions = ['delete-library', 'modify-library', 'associate-education', 'disassociate-determination']);
 </script>
 </body>
 </html>

@@ -15,6 +15,7 @@ edu\unbosque\Taller_5\servlets\pojos\EditionPOJO.class
 edu\unbosque\Taller_5\servlets\pojos\BookPOJO.class
 edu\unbosque\Taller_5\services\CustomerService.class
 edu\unbosque\Taller_5\servlets\ServletsCustomer\CreateCustomerServlet.class
+edu\unbosque\Taller_5\servlets\ServletsLibrary\AssociateEditionServlet.class
 edu\unbosque\Taller_5\jpa\repositories\RentRepository.class
 edu\unbosque\Taller_5\jpa\repositories\LibraryRepositoryImpl.class
 edu\unbosque\Taller_5\servlets\ServletsCustomer\ListCustomersServlet.class

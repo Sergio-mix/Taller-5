@@ -11,9 +11,9 @@ public interface RentRepository {
 
     Optional<Rent> findById(Integer id);
 
-    String save(Rent rent);
+    Optional<Rent> save(Rent rent);
 
-    void deleteByEmail(String email);
+    void deleteById(String id);
 
     String modify(String email);
 }

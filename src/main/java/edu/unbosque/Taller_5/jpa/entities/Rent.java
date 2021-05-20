@@ -15,24 +15,30 @@ public class Rent {
     @Column(name = "rent_id")
     private Integer rentId;
 
-    @Column(name = "email")
+    @Column(name = "email_recibido")
     private String email;
 
-    @Column(name = "edition_id")
-    private Integer editionId;
+    @ManyToOne
+    @JoinColumn(name = "email")
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "edition_id")
+    private Edition edition;
 
     @Column(name = "renting_date")
-    private Date renting_date;
+    private String renting_date;
+
+
+    public Rent(String email, String rentingDate) {
+    this.email=email;
+    this.renting_date=rentingDate;
+    }
+
     public Rent() {
 
     }
 
-    public Rent(Integer rentId, String email, Integer editionId, Date renting_date) {
-        this.rentId = rentId;
-        this.email = email;
-        this.editionId = editionId;
-        this.renting_date = renting_date;
-    }
 
     public Integer getRentId() {
         return rentId;
@@ -50,19 +56,29 @@ public class Rent {
         this.email = email;
     }
 
-    public Integer getEditionId() {
-        return editionId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setEditionId(Integer editionId) {
-        this.editionId = editionId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public Date getRenting_date() {
+    public Edition getEdition() {
+        return edition;
+    }
+
+    public void setEdition(Edition edition) {
+        this.edition = edition;
+    }
+
+    public String getRenting_date() {
         return renting_date;
     }
 
-    public void setRenting_date(Date renting_date) {
+    public void setRenting_date(String renting_date) {
         this.renting_date = renting_date;
     }
+
+
 }

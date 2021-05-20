@@ -127,6 +127,24 @@
                         cell.appendChild(action);
                     }
 
+                    if (actions.includes('associate-education')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        action.setAttribute('onclick', 'location.href="./form-library-edition.jsp?libraryId=' + d['libraryId'] + '";');
+                        var text = document.createTextNode('associate education');
+                        action.appendChild(text);
+                        cell.appendChild(action);
+                    }
+
+                    if (actions.includes('disassociate-determination')) {
+                        var cell = newRow.insertCell();
+                        var action = document.createElement('button');
+                        action.setAttribute('onclick', 'location.href="./disassociate-determination?libraryId=' + d['libraryId'] + '";');
+                        var text = document.createTextNode('disassociate determination');
+                        action.appendChild(text);
+                        cell.appendChild(action);
+                    }
+
                 });
 
             }
@@ -137,7 +155,7 @@
     }
 
     // Printing libraries
-    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name'], actions=['delete-library','modify-library']);
+    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name','edition'], actions=['delete-library','modify-library','associate-education','disassociate-determination']);
 </script>
 </body>
 </html>

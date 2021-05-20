@@ -5,15 +5,17 @@ import java.util.Date;
 public class RentPOJO {
     private Integer rentID;
     private String email;
-    private String edition;
-    private Date rentingDate ;
+    private Integer editionId;
+    private String rentingDate ;
 
-    public RentPOJO(Integer rentID, String email, String edition, Date rentingDate) {
+    public RentPOJO(Integer rentID, String email, Integer editionId, String rentingDate) {
         this.rentID = rentID;
         this.email = email;
-        this.edition = edition;
+        this.editionId = editionId;
         this.rentingDate = rentingDate;
     }
+
+
 
     public Integer getRentID() {
         return rentID;
@@ -31,19 +33,19 @@ public class RentPOJO {
         this.email = email;
     }
 
-    public String getEdition() {
-        return edition;
+    public Integer getEditionId() {
+        return editionId;
     }
 
-    public void setEdition(String edition) {
-        this.edition = edition;
+    public void setEditionId(Integer editionId) {
+        this.editionId = editionId;
     }
 
-    public Date getRentingDate() {
+    public String getRentingDate() {
         return rentingDate;
     }
 
-    public void setRentingDate(Date rentingDate) {
+    public void setRentingDate(String rentingDate) {
         this.rentingDate = rentingDate;
     }
 }

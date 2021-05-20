@@ -36,4 +36,7 @@ public interface EditionRepository {
      * @param id
      */
     void deleteById(Integer id);
+
+
+    Optional<Edition> findById(Integer id);
 }

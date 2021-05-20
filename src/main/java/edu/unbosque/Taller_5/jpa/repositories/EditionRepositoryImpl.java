@@ -37,6 +37,7 @@ public class EditionRepositoryImpl implements EditionRepository {
      * @param id
      * @return
      */
+    @Override
     public Optional<Edition> findById(Integer id) {
         Edition edition = entityManager.find(Edition.class, id);
         return edition != null ? Optional.of(edition) : Optional.empty();

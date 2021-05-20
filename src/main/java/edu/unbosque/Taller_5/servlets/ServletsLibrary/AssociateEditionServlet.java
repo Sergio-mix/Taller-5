@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "associateEditionServlet", value = "/Associate-edition")
+@WebServlet(name = "associateEditionServlet", value = "/associate-edition")
 public class AssociateEditionServlet  extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
         Integer libraryId = Integer.parseInt(request.getParameter("libraryId"));
-        Integer  Id = Integer.parseInt(request.getParameter("name"));
+        Integer  Id = Integer.parseInt(request.getParameter("edition"));
 
         LibraryService libraryService = new LibraryService();
         libraryService.associate_edit(Id, libraryId);

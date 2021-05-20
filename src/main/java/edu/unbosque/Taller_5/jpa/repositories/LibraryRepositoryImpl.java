@@ -79,6 +79,7 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     public void associateEdition(Integer idEdition, Integer id) {
         entityManager.getTransaction().begin();
         Optional<Library> library = this.findById(id);
+        System.out.println("AQUIIIII"+id+"     "+idEdition);
         if (library.isPresent())
             library.get().setEditionId(idEdition);
         entityManager.getTransaction().commit();

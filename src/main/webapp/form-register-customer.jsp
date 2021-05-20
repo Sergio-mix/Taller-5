@@ -21,15 +21,15 @@
             <form action="create-customer">
                 <p>
                     <label>Firs name</label>
-                    <input type="text" id="txt_first_name" name ="first_name"required>
+                    <input type="text" id="txt_first_name" name="first_name" required>
                 </p>
                 <p>
                     <label>Last name</label>
-                    <input type="text" id="txt_last_name" name ="last_name"required>
+                    <input type="text" id="txt_last_name" name="last_name" required>
                 </p>
                 <p>
                     <label>Gender</label>
-                    <select class="select-item" id="txt_gender"name ="gender" required>
+                    <select class="select-item" id="txt_gender" name="gender" required>
                         <option>Please select...</option>
                         <option>Man</option>
                         <option>Woman</option>
@@ -37,14 +37,14 @@
                 </p>
                 <p>
                     <label>Age</label>
-                    <input type="number" id="txt_age"name ="age" required>
+                    <input type="number" id="txt_age" name="age" required>
                 </p>
                 <p>
                     <label>Email</label>
-                    <input type="email" id="txt_email" name ="email"required>
+                    <input type="email" id="txt_email" name="email" required>
                 </p>
                 <div class="block">
-                    <input type="submit" id="button-register" >
+                    <input type="submit" id="button-register">
                 </div>
             </form>
         </div>

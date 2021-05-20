@@ -6,9 +6,9 @@
 </head>
 <body>
 
-<form action="./associate-education">
+<form action="./associate-edition">
     <input type="hidden" id="libraryId" name="libraryId" value ="<%= request.getParameter("libraryId") %>">
-    Edition name: <input type="text" id="name" name="name" required>
+    Edition Id: <input type="text" id="edition" name="edition" required>
     <input type="submit" value="Associate-edition">
 </form>
 

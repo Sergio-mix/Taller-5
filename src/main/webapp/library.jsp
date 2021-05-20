@@ -74,6 +74,7 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>Editions</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -155,7 +156,7 @@
     }
 
     // Printing libraries
-    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name','edition'], actions=['delete-library','modify-library','associate-education','disassociate-determination']);
+    printTable(elementId = 'librariesTbl', servlet = 'list-libraries', columns = ['libraryId', 'name','EditionId'], actions=['delete-library','modify-library','associate-education','disassociate-determination']);
 </script>
 </body>
 </html>

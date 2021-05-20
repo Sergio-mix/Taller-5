@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="css/module.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
     <script src="js/next.js"></script>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
 </head>
 <body>
 <div class="l-navbar" id="navbar">

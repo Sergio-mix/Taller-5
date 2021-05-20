@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style_index.css">
+    <link rel="stylesheet" href="css/module.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
     <script src="js/next.js"></script>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
 </head>
 <body>
 
@@ -66,23 +62,24 @@
 <script src="js/main.js"></script>
 
 <!-- ===== index ===== -->
-<button onclick="location.href='./form-edition.jsp';">Create edición</button>
 
-<h3>Edition</h3>
-
-<table id="editionsTbl">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Description</th>
-        <th>Release year</th>
-        <th>Book id</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+<h1 id="title-module">Edition <span style="color: #d90c43;"> list</span></h1>
+<div id="from-module">
+    <table id="editionsTbl">
+        <thead>
+        <tr id="header">
+            <th>Id</th>
+            <th>Description</th>
+            <th>Release year</th>
+            <th>Book id</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button onclick="location.href='./form-edition.jsp';" id="button-regis">Create edición</button>
+</div>
 <script>
 
     function printTable(elementId, servlet, columns, actions = []) {
@@ -132,10 +129,8 @@
     }
 
 
-
-
     // Printing books
-    printTable(elementId = 'editionsTbl', servlet = 'list-edition', columns = ['editionId','description','release', 'bookId'], actions = ['modify-edition','delete-edition']);
+    printTable(elementId = 'editionsTbl', servlet = 'list-edition', columns = ['editionId', 'description', 'release', 'bookId'], actions = ['modify-edition', 'delete-edition']);
 
 </script>
 

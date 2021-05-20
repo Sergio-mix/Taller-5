@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style_index.css">
+    <link rel="stylesheet" href="css/module.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
     <script src="js/next.js"></script>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-        }
-    </style>
 </head>
 <body>
 
@@ -66,25 +62,24 @@
 <script src="js/main.js"></script>
 
 <!-- ===== index ===== -->
-<button onclick="location.href='./form-library.jsp';">Create book</button>
-
-<h3>Book</h3>
-
-<table id="booksTbl">
-    <thead>
-    <tr>
-        <th>Book ID</th>
-        <th>Book</th>
-        <th>ISBN</th>
-        <th>Author</th>
-        <th>genre</th>
-        <th>Actions</th>
-
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+<h1 id="title-module">List <span style="color: #d90c43;"> Book</span></h1>
+<div id="from-module">
+    <table id="booksTbl">
+        <thead>
+        <tr id="header">
+            <th>Book ID</th>
+            <th>Book</th>
+            <th>ISBN</th>
+            <th>Author</th>
+            <th>genre</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button id="button-regis" onclick="location.href='./form-library.jsp';">Create book</button>
+</div>
 
 <script>
 
@@ -135,10 +130,8 @@
     }
 
 
-
-
     // Printing books
-    printTable(elementId = 'booksTbl', servlet = 'list-books', columns = ['bookId','title','isbn', 'author','genre'], actions = ['modify-book','delete-book']);
+    printTable(elementId = 'booksTbl', servlet = 'list-books', columns = ['bookId', 'title', 'isbn', 'author', 'genre'], actions = ['modify-book', 'delete-book']);
 
 </script>
 </body>

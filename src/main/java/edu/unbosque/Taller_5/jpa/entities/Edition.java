@@ -33,7 +33,7 @@ public class Edition {
 
     // FetchType.EAGER: When we retrieve a Library, we'll also automatically retrieve all of its corresponding Editions
     // CascadeType.PERSIST: When we save a superhero, its movies will also be saved
-    @ManyToMany(mappedBy = "edition", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(mappedBy = "editions", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<Library> libraries = new HashSet<>();
 
     @OneToMany(mappedBy = "edition", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -122,9 +122,14 @@ public class Edition {
     public void setRents(List<Rent> rents) {
         this.rents = rents;
     }
+
     public void addRent(Rent rent) {
         rents.add(rent);
         rent.setEdition(this);
+    }
+    public void addLibrary(Library library) {
+        libraries.add(library);
+        library.getEditions().add(this);
     }
 
 

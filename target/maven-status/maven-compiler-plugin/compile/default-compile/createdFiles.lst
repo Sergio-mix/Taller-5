@@ -21,10 +21,12 @@ edu\unbosque\Taller_5\servlets\ServletsCustomer\ListCustomersServlet.class
 edu\unbosque\Taller_5\servlets\ServletsAuthor\CreateAuthorServlet.class
 edu\unbosque\Taller_5\servlets\ServletsAuthor\DeleteAuthorServlet.class
 edu\unbosque\Taller_5\servlets\pojos\AuthorPOJO.class
+edu\unbosque\Taller_5\jpa\repositories\RentRepositoryImpl.class
 edu\unbosque\Taller_5\services\LibraryService.class
 edu\unbosque\Taller_5\servlets\ServletsBooks\ListBooksServlet.class
 edu\unbosque\Taller_5\jpa\entities\Author.class
 edu\unbosque\Taller_5\jpa\entities\Edition.class
+edu\unbosque\Taller_5\services\RentService.class
 edu\unbosque\Taller_5\servlets\ServletsBooks\ModifyBookServlet.class
 edu\unbosque\Taller_5\jpa\entities\Customer.class
 edu\unbosque\Taller_5\servlets\ServletsBooks\DeleteBookServlet.class
@@ -39,6 +41,7 @@ edu\unbosque\Taller_5\servlets\pojos\RentPOJO.class
 edu\unbosque\Taller_5\servlets\ServletsAuthor\ModifyAuthorServlet.class
 edu\unbosque\Taller_5\servlets\ServletsRent\ListRentServlet.class
 edu\unbosque\Taller_5\jpa\repositories\CustomerRepository.class
+edu\unbosque\Taller_5\servlets\ServletsRent\CreateRentServlet.class
 edu\unbosque\Taller_5\jpa\entities\Library.class
 edu\unbosque\Taller_5\servlets\ServletsEdition\CreateEditionServlet.class
 edu\unbosque\Taller_5\servlets\ServletsLibrary\ModifyLibraryServlet.class

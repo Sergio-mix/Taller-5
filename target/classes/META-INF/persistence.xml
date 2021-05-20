@@ -11,6 +11,8 @@
         <class>edu.unbosque.Taller_5.jpa.entities.Edition</class>
         <class>edu.unbosque.Taller_5.jpa.entities.Library</class>
         <class>edu.unbosque.Taller_5.jpa.entities.Customer</class>
+        <class>edu.unbosque.Taller_5.jpa.entities.Rent</class>
+
 
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update" />

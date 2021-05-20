@@ -10,7 +10,7 @@ _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios
 
 ### Video 📋
 
-_Link: _
+Link: https://www.youtube.com/watch?v=oYmgpSSU5aM
 
 ### Funcionalidad del programa ✒️
 
